@@ -1,7 +1,7 @@
 var ghpages = require('gh-pages');
 
 ghpages.publish(
-    'public',// <-- replace yourproject with your repo name
+    'public',
     {
         branch: 'gh-pages',
         repo: 'https://github.com/fimtow/url-shortener.git',
