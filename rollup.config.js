@@ -34,8 +34,7 @@ export default {
 		sourcemap: true,
 		format: 'iife',
 		name: 'app',
-		file: 'public/build/bundle.js',
-		basepath:  production ? '/url-shortener/' : '/'
+		file: 'public/build/bundle.js'
 	},
 	plugins: [
 		svelte({
@@ -58,7 +57,6 @@ export default {
 			dedupe: ['svelte']
 		}),
 		commonjs(),
-
 		// In dev mode, call `npm run start` once
 		// the bundle has been generated
 		!production && serve(),
