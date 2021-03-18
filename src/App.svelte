@@ -1,31 +1,33 @@
 <script>
-	export let name;
+let myurl;
+const api = "https://api-ssl.bitly.com/v4/shorten";
+async function shrink(){
+	if(!myurl.startsWith("http://") && !myurl.startsWith("https://"))
+	{
+		myurl = 'http://'+myurl;
+	}
+	let formData = new FormData();
+	formData.append('long_url', myurl);
+	fetch(api, {
+		method: 'POST',
+		headers: {
+			'Authorization': 'Bearer edbc38b1ef9b02f03ebc1fdd9637cccce4c46ffa',
+			'Content-Type': 'application/json'
+		},
+		body: JSON.stringify({ "long_url": myurl })
+	}).then(data => data.json()).then(data => myurl = data.link);
+};
+
+const copy = () => {
+	navigator.clipboard.writeText(myurl);
+};
+
 </script>
 
-
-<main>
-	<h1>Hello {name}!</h1>
-	<p>Visit the <a href="https://svelte.dev/tutorial">Svelte tutorial</a> to learn how to build Svelte apps.</p>
-</main>
-
-<style>
-	main {
-		text-align: center;
-		padding: 1em;
-		max-width: 240px;
-		margin: 0 auto;
-	}
-
-	h1 {
-		color: #ff3e00;
-		text-transform: uppercase;
-		font-size: 4em;
-		font-weight: 100;
-	}
-
-	@media (min-width: 640px) {
-		main {
-			max-width: none;
-		}
-	}
-</style>
+<input type="text" placeholder="Enter URL" bind:value={myurl}>
+<button type="button" on:click={shrink}>
+	Shrink
+</button>
+<button type="button" on:click={copy}>
+	Copy
+</button>
