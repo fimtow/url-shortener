@@ -23,11 +23,17 @@ const copy = () => {
 };
 
 </script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
+<div class="columns is-mobile is-centered">
+	<div class="column is-half">
+		<input class="input is-primary" type="text" placeholder="Enter URL" bind:value={myurl}>
+		<button class="button is-primary" type="button" on:click={shrink}>
+			Shrink
+		</button>
+		<button class="button is-primary is-light" type="button" on:click={copy}>
+			Copy
+		</button>
+	</div>
+</div>
 
-<input type="text" placeholder="Enter URL" bind:value={myurl}>
-<button type="button" on:click={shrink}>
-	Shrink
-</button>
-<button type="button" on:click={copy}>
-	Copy
-</button>
+
