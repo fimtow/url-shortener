@@ -26,12 +26,26 @@ const copy = () => {
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
 <div class="columns is-mobile is-centered">
 	<div class="column is-half">
-		<input class="input is-primary" type="text" placeholder="Enter URL" bind:value={myurl}>
+		<h1 class="title is-1">URL shortener</h1>
+		<div class="field">
+			<p class="control has-icons-left">
+				<input class="input is-normal is-primary" type="text" placeholder="Enter URL" bind:value={myurl}>
+				<span class="icon is-small is-left">
+					<i class="fas fa-link"></i>
+				</span>
+			</p>
+		</div>
 		<button class="button is-primary" type="button" on:click={shrink}>
-			Shrink
+			<span class="icon">
+				<i class="fas fa-compress-alt"></i>
+			  </span>
+			<span>Shrink</span>
 		</button>
 		<button class="button is-primary is-light" type="button" on:click={copy}>
-			Copy
+			<span class="icon">
+				<i class="far fa-copy"></i>
+			</span>
+			<span>Copy</span>
 		</button>
 	</div>
 </div>
